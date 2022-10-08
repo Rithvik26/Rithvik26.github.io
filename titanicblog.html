@@ -19,8 +19,8 @@
 
 				<!-- Intro -->
 					<div id="intro">
-						<h1>Golthi Rithvik Portfolio</h1>
-						<p>A showcase of my projects and my abilities.</p>
+						<h1>Titanic Blog</h1>
+						
 						<ul class="actions">
 							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
 						</ul>
@@ -28,7 +28,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">My Portfolio</a>
+						<a href="index.html" class="logo">Titanic Blog</a>
 					</header>
 
 				<!-- Nav -->
@@ -49,11 +49,51 @@
 
 				<!-- Main -->
 					<div id="main">
-							</section>
-							<header class="major" id="blog"><span class="date"> Titanic Kaggle blog </span>
-								<script src="https://gist.github.com/Rithvik26/ecdd6fbc5f786223d86157245dcf7551.js"></script></header>
-						
+							
+                                <header> <h2>History</h2>
+                                    <p>The sinking of the Titanic is one of the most infamous shipwrecks in history.<br>
+                                        On April 15, 1912, during her maiden voyage, the widely considered “unsinkable” RMS Titanic sank after colliding with an iceberg. Unfortunately, there weren’t enough lifeboats for everyone onboard, resulting in the death of 1502 out of 2224 passengers and crew.</p>
+						<br>
+                        
+                        <h2>Getting Started</h2>
+                            <p>So In this blog I have built a predictive model for the “Titanic - Machine Learning from Disaster” challenge from kaggle. In this challenge I have used the Titanic passenger data (name, age, price of ticket, etc) to try to predict who will survive and who will die.</p>
+                        
+                        <br>
+                        <h2>Dataset</h2>
+                        <p>I have used python3 to implement the model.I first downloaded the dataset from kaggle and placed it in the above locations. The below code snippet is printing the locations of the train, test and gender_submission csv files.</p>
 
+                       
+                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/titanic/1.png">
+                        <br>
+                        <p>Initially, the training data and testing data are loaded. And using the head() function we can display the first 5 entries of the data.</p>
+                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/titanic/2.png">
+                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/titanic/3.png">
+                        <br>
+                        <br>
+                        <h2>Survival percentages</h2>
+                        <p>To get an estimate of what percentage of men and women have survived, we can make use of the “Survived” attribute and calculate the respective survived percentages as shown in the below code snippet.</p>
+                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/titanic/4.png">
+                        <br>
+                        <br>
+                        <h2>Random Forest Classifier</h2>
+                        <p>Random forest classifier creates a set of decision trees from randomly selected subset of training set. It then aggregates the votes from different decision trees to decide the final class of the test object.</p>
+                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/titanic/5.png">
+                        <br>
+                        <br>
+                        <h2>Training the Model</h2>
+                        <p>We will be using the Random Forest Classifier to train our model on the training data. After the model is trained, the model is then tested using the test data.The final predictions are stored into submission.csv.</p>
+                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/titanic/6.png">
+                        <br>
+                        <br>
+                        <h2>Submission Score</h2>
+                        <p>The Final score at kaggle after submission was 0.77511.</p>
+                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/titanic/7.png">
+
+
+
+
+
+                        </header>
 					</div>
 		
 			
