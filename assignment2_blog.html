@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Golthi Rithvik's Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<style>
+		img {
+  transform: scale(0.7);
+}
+	</style>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Intro -->
+					<div id="intro">
+						<h1>Naive Bayes Classifier Blog</h1>
+						
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
+
+				<!-- Header -->
+					<header id="header">
+						<a href="assignment2_blog.html" class="logo">Naive Bayes Classifier Blog</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html" >Golthi Rithvik</a></li>
+					
+						</ul>
+						<ul class="icons">
+
+							<li><a target="_blank" href="https://github.com/Rithvik26/Airplane_motorbike_Schooners/blob/main/Motorbikes_Airplanes_Schooner_Classification.ipynb"><span class="label">Jupyter Notebook</span></a></li>
+							<li><a target="_blank" href="https://drive.google.com/file/d/1xdRk1F8_AtMzDQecroxtKMzPI85l8FM7/view?usp=sharing"><span class="label">Resume</span></a></li>
+							
+							<li><a target="_blank" href="https://www.linkedin.com/in/rithvik-golthi-92048b167/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							
+							<li><a target="_blank" href="https://github.com/Rithvik26" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+							
+                                <header> <h2>Getting Started</h2>
+                                    <p>In this blog we are going to learn how to predict classes of objects with given image coordinates in the dataset consisting of Airplanes,motorcylces and schooners images, using Tensorflowand other Machine Learning Techniques.</p>
+						<br>
+                        
+                        <h2>Dataset</h2>
+                            <p>I have used python3 to implement the model.I first downloaded the Caltech101_classification dataset consisting of three classes of Airplanes,motorcycles and schooners images from kaggle and placed the zip file in the google drive.Then I have unzipped the data as using the below code snippet:</p>
+							<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/1.png">
+                        <br>
+                        
+                        <h2>Libraries</h2>
+                        <p>Firstly, before we start working on the dataset, we are going to import required libraries as shown in the below code snippet:</p>
+                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/2.png">
+                        <br>
+
+						<h2>Tensorflow</h2>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/3.png">
+
+						<p>As we can see, we are using the TensorFlow library for this project.TensorFlow is an open-source library developed by Google and has become very popular with Machine Learning. TensorFlow offers APIs that facilitates Machine Learning. TensorFlow also has a faster compilation time than other Deep Learning libraries such as Keras and Touch. TensorFlow supports both CPU and GPU computing devices.</p>
+						<p>Once you have accessed the data in TensorFlow, there is a computation that needs to be done. Each computation in TensorFlow is represented as a Data Flow Graph. It is not like traditional programming. We prepare graphs with nodes and then they are executed in the form of a session with the data in the Tensors. Each node in the graph represents a mathematical operation (add, subtract, multiply, etc.) and each edge represents multidimensional arrays which are the Tensors. The graph is then executed and the data is processed.</p>
+                        <br>
+
+						<h2>Initializing the variables</h2>
+						<p>The below variables will store the input data, target labels and also the names of the image files. And the classes data variable is a list that contains the available three classes names.</p>
+                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/4.png">
+                        <br>
+						<br>
+						<h2>Loading the dataset</h2>
+						<p>Using the below function we can count the number of images in each class.</p>
+                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/5.png">
+                        <br>
+						<p>The below code snippet fills up the variables “data” and “labels” from the respective locations of images paths.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/6.png">
+						<br>
+						<p>Here, we can visualize an example image in the given dataset.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/7.png">
+						<br>
+						<br>
+
+
+						<h2>Data Preparation</h2>
+						<p>Lets check how many images are there in each class.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/8.png">
+						<br>
+						<p>The max variable in the below code snippet contains the maximum value of number of images.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/9.png">
+						<br>
+						<p>We need to add more shooners since, as we can see, we don't have as many of them. Additionally, we'll add two more motorcycle images to the 800 we already have. Scaling and rotation will be done.And, this can be achieved by using the below functions:</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/10.png">
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/11.png">
+						<br>
+						<p>In order to balance the quantity of images in each class, we also need to examine how many images are in each class. We will therefore perform an augmentation using the below function:</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/12.png">
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/13.png">
+						<br>
+						<p>Let's use the augmentation for the classes "Motorbikes" and "schooners."</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/14.png">
+						<br>
+						<p>Let us check the number of images in each class after data augmentation.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/15.png">
+						<p>As we can see now, the number of images in each class are equal now.This helps us to train the models better.</p>
+						<br>
+						<p>We must also standardize the data (convert from range [0, 127] to [0, 1]).</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/16.png">
+						<br>
+						<p>In the below code we are converting everything else into numpy arrays.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/17.png">
+						<p>Now,we are going to perform One-hot encoding technique.</p>
+						<br>
+						<br>
+
+						<h2>One-Hot encoding</h2>
+						<p>One hot encoding method involves transforming categorical information into a format that may be given to ML algorithms to help them perform better at prediction.We can see how One hot encoding works from the below example: Take a look at the data that lists fruits together with the relevant category values and pricing.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/18.png">
+						<p>The Output after performing One-Hot encoding on the given data is as follows,</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/19.png">
+						
+						<p>Using the below code we are implementing the One-Hot encoding on the labels.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/20.png">
+						<p>Additionally, we must determine whether the classification is binary (two classes) or multiclass (three or more classes).</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/21.png">
+						<br>
+						<br>
+
+						<h2>Train-Test Data Split:</h2>
+						<p>Data is split into train and test sets. I made the decision to divide equally into 90% and 10%.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/22.png">
+						<br><p>Moreover, unpack split variables into several variables.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/23.png">
+						<br><p>In order to test the neural network later, we may also record the names of test images in a.txt file.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/24.png">
+						<p>Till now we have successfully preprocessed the data, and from now we are going to work on this data using a VGG16 model.</p>
+						<br>
+						<br>
+
+						<h2>VGG 16</h2>
+						<p>A ConvNet is another name for a convolutional neural network, which is a type of artificial neural network. An input layer, an output layer, and many hidden layers make up a convolutional neural network. One of the top computer vision models to date is the CNN (Convolutional Neural Network) variant known as VGG16. This model's developers analyzed the networks and enhanced the depth using an architecture with incredibly tiny (3 3) convolution filters, which demonstrated a notable advancement over the state-of-the-art setups. The depth was increased to 16–19 weight layers, yielding around 138 trainable parameters.</p>
+						<h3>What is VGG16 used for?</h3>
+						<p>VGG16 is an object identification and classification method that has a 92.7% accuracy rate when classifying 1000 photos into 1000 different categories. It is a well-liked technique for classifying images and is simple to employ with transfer learning.</p>
+						<h3>VGG Architecture</h3>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/25.png">
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/26.png">
+						<p>The 16 in VGG16 refers to 16 layers that have weights. In VGG16 there are thirteen convolutional layers, five Max Pooling layers, and three Dense layers which sum up to 21 layers but it has only sixteen weight layers i.e., learnable parameters layer.</p>
+						<p>The input tensor size for VGG16 is 224, 244 and has three RGB channels.</p>
+						<p>All throughout the architecture, the convolution and max pool layers are placed consistently.</p>
+						<p>There are 64 filters in the Conv-1 Layer, 128 filters in Conv-2, 256 filters in Conv-3, and 512 filters in Conv-4 and Conv-5.</p>
+						<br>
+						<br>
+
+						<h2>My Contribution</h2>
+						<p>I have used the VGG16 model to solve this classification problem by experimenting with the models architecture by altering the number of layers, changing the batch size etc... And the 5 models that I have created to test their performances are as follows:</p>
+						<p>In the below code snippet we are loading the VGG16 model:</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/27.png">
+						<p>And freezing all the layers inorder to train them,</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/28.png">
+						<br>
+
+						<h3>Model-1</h3>
+						<p>For the first model, I am creating a model using one convolution block.Additionally, we'll employ a softmax activation function for the classification task of class prediction.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/29.png">
+						<p>Finally, we need to update our model “m1” to include this output.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/30.png">
+						<p>We must specify the hyperparameters (learning rate, number of epochs, size of batch).</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/31.png">
+						<p>Here, we are creating multiple dictionaries for losses,trainTargets and testTargets.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/32.png">
+						<p>And, we would like to save only the best model from all epochs of this model.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/33.png">
+						<p>We set up the optimizer from scratch, build the model, and display the model summary.Here, we will be using the Adam optimizer.</p>
+						<br>
+						<h3>Adam Optimizer:</h3>
+						<p>Adam is a different optimization algorithm that can be used to train deep learning models instead of stochastic gradient descent. Adam creates an optimization technique that can handle sparse gradients on noisy situations by combining the best features of the AdaGrad and RMSProp algorithms.Adam is a different optimization algorithm that can be used to train deep learning models instead of stochastic gradient descent. Adam creates an optimization technique that can handle sparse gradients on noisy situations by combining the best features of the AdaGrad and RMSProp algorithms.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/34.png">
+						<p>The “m1” models architecture is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/35.png">
+						<p>Now, we fit the compiled model using this below snippet. And also I have used the time library to store the training time of this model using the "d2" data structure which is a data structure:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/36.png">
+						<p>As we can see from the last 5 epochs of this model, we can say that this “m1” model gives us an accuracy of 89%.</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/37.png">
+						<p>Below are the two functions that are required to plot the Training vs Validation Loss and Training vs Validation accuracy:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/38.png">
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/39.png">
+						<p>Using the above functions the training vs validation loss graph for “m1” model is as follows.</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/40.png">
+						<p>The Training vs Validation accuracy graphs for the “m1” model is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/41.png">
+						<br>
+						<br>
+
+						<h3>Model-2</h3>
+						<p>For the second model “m2”, I am creating a model using two convolution blocks.Additionally, we'll employ a softmax activation function for the classification task of class prediction.</p>
+						<p>The “m2” model architecture is as follows:</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/42.png">
+						<p>As we can see from the last 5 epochs of this model, we can say that this “m2” model gives us an accuracy of 93%.</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/43.png">
+						<p>The training vs validation loss graph for “m2” model is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/44.png">
+						<p>The training vs validation accuracy graph for “m2” model is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/45.png">
+						<br>
+						<br>
+
+						<h3>Model-3</h3>
+						<p>For the second model “m3”, I am creating a model using five convolution blocks.Additionally, we'll employ a softmax activation function for the classification task of class prediction.</p>
+						<p>The “m3” model architecture is as follows:</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/46.png">
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/47.png">
+						<p>As we can see from the last 5 epochs of this model, we can say that this “m3” model gives us an accuracy of 93%.</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/48.png">
+						<p>The training vs validation loss graph for “m3” model is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/49.png">
+						<p>The training vs validation accuracy graph for “m3” model is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/50.png">
+						<br>
+						<br>
+
+						<h3>Model-4</h3>
+						<p>For the second model “m4”, I am creating a model using three convolution blocks.Additionally, we'll employ a softmax activation function for the classification task of class prediction.</p>
+						<p>The “m4” model architecture is as follows:</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/51.png">
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/52.png">
+						<p>As we can see from the last 5 epochs of this model, we can say that this “m2” model gives us an accuracy of 98%.</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/53.png">
+						<p>The training vs validation loss graph for “m4” model is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/54.png">
+						<p>The training vs validation accuracy graph for “m4” model is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/55.png">
+						<br>
+						<br>
+
+						<h3>Model-5</h3>
+						<p>For the fourth model “m5”, I am creating a model using the same three convolution blocks but with a batch size of 8 rather using 32.Additionally, we'll employ a softmax activation function for the classification task of class prediction.</p>
+						<p>The “m5” model architecture is as follows:</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/56.png">
+						<p>The fit method which includes the new batch size of 8 is as follows:</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/57.png">
+						<p>As we can see from the last 5 epochs of this model, we can say that this “m5” model gives us an accuracy of 92%.</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/58.png">
+						<p>The training vs validation loss graph for “m5” model is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/59.png">
+						<p>The training vs validation accuracy graph for “m5” model is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/60.png">
+						<br>
+						<br>
+
+						<h2>Observations and Results</h2>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/61.png">
+						<p>The best model that I have achieved was Model-4 “m4” with an accuracy of 97%, in which the architecture consisted of 3 convolutional blocks with learning rate of 0.0001, number of epochs as 20 and batch size of 32.</p>
+						<p>I have improved the models performance from 89% to 97% by changing the models architecture. That is, we can get a better model if we use 3 convolutional blocks instead of 1 convolutional block. And, also using 3 exactly rather than 5 blocks is better as we can see from the accuracy results table.</p>
+						<br>
+						<br>
+
+						<h2>Graphical Representation using Bar Graphs</h2>
+						<h2>Accuracies graph</h2>
+						<p>Using the below code I have projected the accuracies of the implemented models using the bar graph using matplotlib library.</p>
+						<p>I have stored the accuracy of each model using a dictionary data structure and labelled it as "d".</p>
+						<p>For reference, the accuracy of the fifth model is stored as shown in the below code.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/62.png">
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/63.png">
+
+						<h3>The Bar graph for Accuracies is as follows:</h3>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/64.png">
+						<h2>Training Time Graph:</h2>
+						<p>Using the below code I have projected the Training times of the implemented models using the bar graph using matplotlib library. And I have stored the Training times of the models using a dictionary data structure and labelled it as “d2”.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/65.png">
+						<h3>The Bar graph for Training times is as follows:</h3>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/66.png">
+						<br>
+						<br>
+						<h2>References</h2>
+						<p>
+							<ol>
+							<li>[1] Rohith G : Everything you need to know about VGG16 [<a href="https://medium.com/@mygreatlearning/everything-you-need-to-know-about-vgg16-7315defb5918">https://medium.com/@mygreatlearning/everything-you-need-to-know-about-vgg16-7315defb5918</a>]</li>
+							<li>[2] GeeksforGeeks :One hot encoding to treat Categorical Data [<a href="https://www.geeksforgeeks.org/ml-one-hot-encoding-of-datasets-in-python">https://www.geeksforgeeks.org/ml-one-hot-encoding-of-datasets-in-python/</a>]</li>
+
+							<li>[3] Maryna Antonevych : Multicalss Classification [<a href="https://www.kaggle.com/code/maricinnamon/multiclass-classification-caltech101-tensorflow">https://www.kaggle.com/code/maricinnamon/multiclass-classification-caltech101-tensorflow</a>]</li>
+
+							<li>[4] Badisson Josef : [<a href="https://stackoverflow.com/questions/67764895/how-to-remove-the-last-2-layers-within-a-vgg16-pre-trained-model">https://stackoverflow.com/questions/67764895/how-to-remove-the-last-2-layers-within-a-vgg16-pre-trained-model</a>]</li>
+						</ol></p>
+
+                        </header>
+					</div>
+		
+			
+				<!-- Footer -->
+					<footer id="footer">
+						
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>
+								Dallas, TX 75082</p>
+							</section>
+							
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">rxg9045@mavs.uta.edu</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a target="_blank" href="https://www.linkedin.com/in/rithvik-golthi-92048b167/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							
+							<li><a target="_blank" href="https://github.com/Rithvik26" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Golthi</li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
