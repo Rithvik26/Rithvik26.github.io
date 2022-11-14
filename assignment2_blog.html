@@ -44,7 +44,7 @@
 						</ul>
 						<ul class="icons">
 
-							<li><a target="_blank" href="https://github.com/Rithvik26/Airplane_motorbike_Schooners/blob/main/Motorbikes_Airplanes_Schooner_Classification.ipynb"><span class="label">Jupyter Notebook</span></a></li>
+							<li><a target="_blank" href="https://github.com/Rithvik26/Ford_dataset_nbc/blob/main/Ford_Classification2.ipynb"><span class="label">Jupyter Notebook</span></a></li>
 							<li><a target="_blank" href="https://drive.google.com/file/d/1xdRk1F8_AtMzDQecroxtKMzPI85l8FM7/view?usp=sharing"><span class="label">Resume</span></a></li>
 							
 							<li><a target="_blank" href="https://www.linkedin.com/in/rithvik-golthi-92048b167/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
@@ -57,224 +57,127 @@
 					<div id="main">
 							
                                 <header> <h2>Getting Started</h2>
-                                    <p>In this blog we are going to learn how to predict classes of objects with given image coordinates in the dataset consisting of Airplanes,motorcylces and schooners images, using Tensorflowand other Machine Learning Techniques.</p>
+									<p>In this blog we are going to learn how to implement Naive Bayes Classifier on text from scratch without using library Naive bayes classifier. For this task we are going to use the dataset of Ford Sentence Classification Dataset which we have taken from kaggle.</p>
 						<br>
                         
                         <h2>Dataset</h2>
-                            <p>I have used python3 to implement the model.I first downloaded the Caltech101_classification dataset consisting of three classes of Airplanes,motorcycles and schooners images from kaggle and placed the zip file in the google drive.Then I have unzipped the data as using the below code snippet:</p>
-							<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/1.png">
+						<p>I have used python3 to implement the model.I first downloaded the Ford Sentence Classification dataset consisting of New_Sentences with their corresponding labels from kaggle and placed this dataset in my github repository.Then I extracted this data from my repository using the below code.</p>
+							<img style='height: 100%; width: 100%; object-fit: contain' src="images/a2/1.png">
                         <br>
                         
                         <h2>Libraries</h2>
                         <p>Firstly, before we start working on the dataset, we are going to import required libraries as shown in the below code snippet:</p>
-                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/2.png">
+                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/a2/2.png">
                         <br>
 
-						<h2>Tensorflow</h2>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/3.png">
+						<h2>Data Preprocessing</h2>
+						<h2>Removing Tags</h2>
+						<p>As the first step of the data preprocessing, we are going to remove the HTML tags, URLs and non-alphanumeric characters from the text in New_Sentence column of the data. After removal of the above tags we will be removing the stopwords.</p>
+						<p>Before getting into the code for removing tags and stopwords let us learn what are stopwords.</p>
 
-						<p>As we can see, we are using the TensorFlow library for this project.TensorFlow is an open-source library developed by Google and has become very popular with Machine Learning. TensorFlow offers APIs that facilitates Machine Learning. TensorFlow also has a faster compilation time than other Deep Learning libraries such as Keras and Touch. TensorFlow supports both CPU and GPU computing devices.</p>
-						<p>Once you have accessed the data in TensorFlow, there is a computation that needs to be done. Each computation in TensorFlow is represented as a Data Flow Graph. It is not like traditional programming. We prepare graphs with nodes and then they are executed in the form of a session with the data in the Tensors. Each node in the graph represents a mathematical operation (add, subtract, multiply, etc.) and each edge represents multidimensional arrays which are the Tensors. The graph is then executed and the data is processed.</p>
+						<h3>What are Stop words</h3>
+<p>Stopwords are any words that do not significantly add to the meaning of a phrase. They can be safely ignored without affecting the sentence's meaning. These are some of the most popular short function words for some search engines, along with the, is, at, which, and on. Stop words might be problematic in this situation when looking for phrases that contain them, especially in names like "The Who" or "Take That."</p>                        
+
                         <br>
+						<h3>When to remove stop words?</h3>
+<p>Stop words should be eliminated from our corpus when performing text classification or sentiment analysis because they don't add any useful information to our models, however stop words are helpful when performing.</p>
+						<p>Using the below code snippet we will remove the tags and stop words.</p>
+                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/a2/3.png">
 
-						<h2>Initializing the variables</h2>
-						<p>The below variables will store the input data, target labels and also the names of the image files. And the classes data variable is a list that contains the available three classes names.</p>
-                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/4.png">
-                        <br>
-						<br>
-						<h2>Loading the dataset</h2>
-						<p>Using the below function we can count the number of images in each class.</p>
-                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/5.png">
-                        <br>
-						<p>The below code snippet fills up the variables “data” and “labels” from the respective locations of images paths.</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/6.png">
-						<br>
-						<p>Here, we can visualize an example image in the given dataset.</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/7.png">
-						<br>
-						<br>
+<br>
+<h2>Lemmatization</h2>
+<p>[2]Lemmatization is substantially more computationally expensive than stemming because it is not a ruled-based operation. Knowing the part of speech of tokens like "verb," "adverb," and "noun" is necessary for lemmatization.With the Natural Language Tool Kit (NLTK), the "WordNetLemmatizer()" method should be used to accomplish lemmatization.</p>
 
-
-						<h2>Data Preparation</h2>
-						<p>Lets check how many images are there in each class.</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/8.png">
-						<br>
-						<p>The max variable in the below code snippet contains the maximum value of number of images.</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/9.png">
-						<br>
-						<p>We need to add more shooners since, as we can see, we don't have as many of them. Additionally, we'll add two more motorcycle images to the 800 we already have. Scaling and rotation will be done.And, this can be achieved by using the below functions:</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/10.png">
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/11.png">
-						<br>
-						<p>In order to balance the quantity of images in each class, we also need to examine how many images are in each class. We will therefore perform an augmentation using the below function:</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/12.png">
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/13.png">
-						<br>
-						<p>Let's use the augmentation for the classes "Motorbikes" and "schooners."</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/14.png">
-						<br>
-						<p>Let us check the number of images in each class after data augmentation.</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/15.png">
-						<p>As we can see now, the number of images in each class are equal now.This helps us to train the models better.</p>
-						<br>
-						<p>We must also standardize the data (convert from range [0, 127] to [0, 1]).</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/16.png">
-						<br>
-						<p>In the below code we are converting everything else into numpy arrays.</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/17.png">
-						<p>Now,we are going to perform One-hot encoding technique.</p>
-						<br>
-						<br>
-
-						<h2>One-Hot encoding</h2>
-						<p>One hot encoding method involves transforming categorical information into a format that may be given to ML algorithms to help them perform better at prediction.We can see how One hot encoding works from the below example: Take a look at the data that lists fruits together with the relevant category values and pricing.</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/18.png">
-						<p>The Output after performing One-Hot encoding on the given data is as follows,</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/19.png">
+<p>A word will be lemmatized using the "Nltk.stem.WordNetLemmatizer.lemmatize" technique according to its context and placement in the sentence. This can be seen from the below code snippet</p>
 						
-						<p>Using the below code we are implementing the One-Hot encoding on the labels.</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/20.png">
-						<p>Additionally, we must determine whether the classification is binary (two classes) or multiclass (three or more classes).</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/21.png">
-						<br>
-						<br>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a2/4.png">
+<br>
+<h2>Encoding the Labels</h2>
+<p>Here using the LabelEncoder() we are encoding the "Type" column which contains the 5 types of labels namely [“Responsibility”,”Skill”,”SoftSkill”,”Requirement”,”Experience”] respectively with [0,1,2,3,4,5] for each record using the below code snippet. By Encoding the labels in this way will help us in the future for our Naive Bayes Classification.</p>						
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a2/5.png">
 
-						<h2>Train-Test Data Split:</h2>
-						<p>Data is split into train and test sets. I made the decision to divide equally into 90% and 10%.</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/22.png">
-						<br><p>Moreover, unpack split variables into several variables.</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/23.png">
-						<br><p>In order to test the neural network later, we may also record the names of test images in a.txt file.</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/24.png">
-						<p>Till now we have successfully preprocessed the data, and from now we are going to work on this data using a VGG16 model.</p>
-						<br>
-						<br>
-
-						<h2>VGG 16</h2>
-						<p>A ConvNet is another name for a convolutional neural network, which is a type of artificial neural network. An input layer, an output layer, and many hidden layers make up a convolutional neural network. One of the top computer vision models to date is the CNN (Convolutional Neural Network) variant known as VGG16. This model's developers analyzed the networks and enhanced the depth using an architecture with incredibly tiny (3 3) convolution filters, which demonstrated a notable advancement over the state-of-the-art setups. The depth was increased to 16–19 weight layers, yielding around 138 trainable parameters.</p>
-						<h3>What is VGG16 used for?</h3>
-						<p>VGG16 is an object identification and classification method that has a 92.7% accuracy rate when classifying 1000 photos into 1000 different categories. It is a well-liked technique for classifying images and is simple to employ with transfer learning.</p>
-						<h3>VGG Architecture</h3>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/25.png">
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/26.png">
-						<p>The 16 in VGG16 refers to 16 layers that have weights. In VGG16 there are thirteen convolutional layers, five Max Pooling layers, and three Dense layers which sum up to 21 layers but it has only sixteen weight layers i.e., learnable parameters layer.</p>
-						<p>The input tensor size for VGG16 is 224, 244 and has three RGB channels.</p>
-						<p>All throughout the architecture, the convolution and max pool layers are placed consistently.</p>
-						<p>There are 64 filters in the Conv-1 Layer, 128 filters in Conv-2, 256 filters in Conv-3, and 512 filters in Conv-4 and Conv-5.</p>
-						<br>
-						<br>
+<br>
 
 						<h2>My Contribution</h2>
-						<p>I have used the VGG16 model to solve this classification problem by experimenting with the models architecture by altering the number of layers, changing the batch size etc... And the 5 models that I have created to test their performances are as follows:</p>
-						<p>In the below code snippet we are loading the VGG16 model:</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/27.png">
-						<p>And freezing all the layers inorder to train them,</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/28.png">
+						<h2>Train-Development-Test Data Split</h2>
+                        <p>Data is split into train,development and test sets. I made the decision to divide them in the ratio of 6:2:2 using the below code snippet.</p>
+                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/a2/6.png">
+                        <br>
+						<p>The total number of Training Examples and Labels are shown from using the below code snippet.</p>
+                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/a2/7.png">
+						<br>
+						<p>The total number of Development Examples and Labels are shown from using the below code snippet.</p>
+                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/a2/8.png">
+						<br>
+						<p>The total number of Test Examples and Labels are shown from using the below code snippet.</p>
+                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/a2/9.png">
+						<br>
+						<h2>Word Counts</h2>
+						<p>First, we are going to use CountVectorizer to convert a text into a vector based on the number of times each word appears in the text as a whole. When we have several of these texts and want to turn each word into a vector, this is useful. We get the vocab from feature names picked from the raw documents using the "get feature names()" function.</p>
+						<p>Finally, I have created a count_words function which return the word_counts based on the training sentences and labels as shown in the below code snippet.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a2/10.png">
+						<p>Before getting started on implementing the Naive Bayes Classifier let us learn few things about Naive Bayes Classifier.</p>
+<br>
+						<h2>Naive Bayes Classifier:</h2>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a2/11.png">
+						[3]JaganDeep Singh : Naive bayes classification[https://jagan-singhh.medium.com/naive-bayes-classifier-99e3e618f8db]
+						<p>The Bayes theorem is used in the Naive Bayes Classifier, a classification algorithm. It does NLP tasks like sentimental analysis with excellent results. A quick and simple classification algorithm is used. The application of this algorithm in NLP is extremely common.</p>
+						<br>
+						<h2>Bayes Theorem</h2>
+						<p>A rational method for determining a conditional probability is the Bayes Theorem. The likelihood that something will happen provided that something else has already happened is known as the conditional probability. We can determine the likelihood that an event will occur given the information of a prior event by utilizing conditional probability.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a2/12.png">
+						<br>
+						<h2>Naive Bayes</h2>
+						<p>Given the values of the features, the aim in the supervised learning method naive bayes for classification is to determine the class of the observation (data point). A naive bayes classifier (p(yi | x1, x2,..., xn)) determines the likelihood of a class given a set of feature values.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a2/13.png">
+						<p>The probability of an occurrence is determined by the Naive Bayes classifier in the following ways:</p>
+						<p>Step 1: determine the prior probability for the specified class labels.
+							Step 2: Calculate the likelihood probability for each class given each attribute.
+							Step 3: Apply the Bayes formula to these values to determine the posterior probability.
+							Step 4: Determine which class, given that the input belongs to the higher probability class, has a greater likelihood.</p>
+
+						<h2>Naive Bayes Implementation from Scratch</h2>
+						<p>I have created a class called NaiveBayes from scratch as shown in the below code snippet.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a2/14.png">
+
+						<h3>def __init__(self,l):</h3>
+						<p>The __init__ function is the constructor of this Naive Bayes Classifier which accepts the number of unique labels for this classification.</p>
+
+						<h3>def groupby_lab(self,x,y):</h3>
+						<p>The groupby_lab is the function that is used to group the New_Sentences by its labels.</p>
+
+						<h3>def laplace_smoothing(self,voc,word_c,sent_l):</h3>
+						<p>We are performing the laplace smoothing using the laplace_smoothing function.</p>
+						<h3>What is laplace smoothing?</h3>
+						<p>Laplace smoothing is a smoothing method that addresses the Naive Bayes issue of zero probability. Laplace smoothing allows us to depict P(w'|positive) as</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a2/15.png">
+						[1]Vaibhav Jayswal: Laplace smoothing in Naïve Bayes algorithm [https://towardsdatascience.com/laplace-smoothing-in-na%C3%AFve-bayes-algorithm-9c237a8bdece]
+						<br>
+						<h3>def fit(self,x,y):</h3>
+						<p>The "fit" function takes x (New_Sentences) and y (labels) values to be fitted on and stores the number of New_Sentences with each label and the conditional probabilities. We are taking the help of groupby_lab function in the fit method.</p>
+						<h3>def predict(self,voc,word_c,x):</h3>
+						<p>The "predict" function is written which returns predictions on unseen test sentences. As you can see in the predict function we are applying the laplace smoothing on each word before storing its final conditional word probability in each sentence.</p>
 						<br>
 
-						<h3>Model-1</h3>
-						<p>For the first model, I am creating a model using one convolution block.Additionally, we'll employ a softmax activation function for the classification task of class prediction.</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/29.png">
-						<p>Finally, we need to update our model “m1” to include this output.</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/30.png">
-						<p>We must specify the hyperparameters (learning rate, number of epochs, size of batch).</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/31.png">
-						<p>Here, we are creating multiple dictionaries for losses,trainTargets and testTargets.</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/32.png">
-						<p>And, we would like to save only the best model from all epochs of this model.</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/33.png">
-						<p>We set up the optimizer from scratch, build the model, and display the model summary.Here, we will be using the Adam optimizer.</p>
-						<br>
-						<h3>Adam Optimizer:</h3>
-						<p>Adam is a different optimization algorithm that can be used to train deep learning models instead of stochastic gradient descent. Adam creates an optimization technique that can handle sparse gradients on noisy situations by combining the best features of the AdaGrad and RMSProp algorithms.Adam is a different optimization algorithm that can be used to train deep learning models instead of stochastic gradient descent. Adam creates an optimization technique that can handle sparse gradients on noisy situations by combining the best features of the AdaGrad and RMSProp algorithms.</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/34.png">
-						<p>The “m1” models architecture is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/35.png">
-						<p>Now, we fit the compiled model using this below snippet. And also I have used the time library to store the training time of this model using the "d2" data structure which is a data structure:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/36.png">
-						<p>As we can see from the last 5 epochs of this model, we can say that this “m1” model gives us an accuracy of 89%.</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/37.png">
-						<p>Below are the two functions that are required to plot the Training vs Validation Loss and Training vs Validation accuracy:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/38.png">
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/39.png">
-						<p>Using the above functions the training vs validation loss graph for “m1” model is as follows.</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/40.png">
-						<p>The Training vs Validation accuracy graphs for the “m1” model is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/41.png">
-						<br>
+						<h2>Creating a model</h2>
+						<p>Next, I have created a model of Naive Bayes and fitted the model on the train_sentences using the below code Snippet. And, Initially I have made predictions on the development dataset as shown below.I have achieved an accuracy of 26% on the test dataset.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a2/16.png">
 						<br>
 
-						<h3>Model-2</h3>
-						<p>For the second model “m2”, I am creating a model using two convolution blocks.Additionally, we'll employ a softmax activation function for the classification task of class prediction.</p>
-						<p>The “m2” model architecture is as follows:</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/42.png">
-						<p>As we can see from the last 5 epochs of this model, we can say that this “m2” model gives us an accuracy of 93%.</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/43.png">
-						<p>The training vs validation loss graph for “m2” model is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/44.png">
-						<p>The training vs validation accuracy graph for “m2” model is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/45.png">
-						<br>
-						<br>
-
-						<h3>Model-3</h3>
-						<p>For the second model “m3”, I am creating a model using five convolution blocks.Additionally, we'll employ a softmax activation function for the classification task of class prediction.</p>
-						<p>The “m3” model architecture is as follows:</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/46.png">
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/47.png">
-						<p>As we can see from the last 5 epochs of this model, we can say that this “m3” model gives us an accuracy of 93%.</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/48.png">
-						<p>The training vs validation loss graph for “m3” model is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/49.png">
-						<p>The training vs validation accuracy graph for “m3” model is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/50.png">
-						<br>
-						<br>
-
-						<h3>Model-4</h3>
-						<p>For the second model “m4”, I am creating a model using three convolution blocks.Additionally, we'll employ a softmax activation function for the classification task of class prediction.</p>
-						<p>The “m4” model architecture is as follows:</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/51.png">
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/52.png">
-						<p>As we can see from the last 5 epochs of this model, we can say that this “m2” model gives us an accuracy of 98%.</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/53.png">
-						<p>The training vs validation loss graph for “m4” model is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/54.png">
-						<p>The training vs validation accuracy graph for “m4” model is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/55.png">
-						<br>
-						<br>
-
-						<h3>Model-5</h3>
-						<p>For the fourth model “m5”, I am creating a model using the same three convolution blocks but with a batch size of 8 rather using 32.Additionally, we'll employ a softmax activation function for the classification task of class prediction.</p>
-						<p>The “m5” model architecture is as follows:</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/56.png">
-						<p>The fit method which includes the new batch size of 8 is as follows:</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/57.png">
-						<p>As we can see from the last 5 epochs of this model, we can say that this “m5” model gives us an accuracy of 92%.</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/58.png">
-						<p>The training vs validation loss graph for “m5” model is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/59.png">
-						<p>The training vs validation accuracy graph for “m5” model is as follows:</p><img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/60.png">
-						<br>
-						<br>
-
-						<h2>Observations and Results</h2>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/61.png">
-						<p>The best model that I have achieved was Model-4 “m4” with an accuracy of 97%, in which the architecture consisted of 3 convolutional blocks with learning rate of 0.0001, number of epochs as 20 and batch size of 32.</p>
-						<p>I have improved the models performance from 89% to 97% by changing the models architecture. That is, we can get a better model if we use 3 convolutional blocks instead of 1 convolutional block. And, also using 3 exactly rather than 5 blocks is better as we can see from the accuracy results table.</p>
-						<br>
-						<br>
-
-						<h2>Graphical Representation using Bar Graphs</h2>
-						<h2>Accuracies graph</h2>
-						<p>Using the below code I have projected the accuracies of the implemented models using the bar graph using matplotlib library.</p>
-						<p>I have stored the accuracy of each model using a dictionary data structure and labelled it as "d".</p>
-						<p>For reference, the accuracy of the fifth model is stored as shown in the below code.</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/62.png">
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/63.png">
-
-						<h3>The Bar graph for Accuracies is as follows:</h3>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/64.png">
-						<h2>Training Time Graph:</h2>
-						<p>Using the below code I have projected the Training times of the implemented models using the bar graph using matplotlib library. And I have stored the Training times of the models using a dictionary data structure and labelled it as “d2”.</p>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/65.png">
-						<h3>The Bar graph for Training times is as follows:</h3>
-						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a1/66.png">
-						<br>
-						<br>
+						<h2>Testing the Model on Test Data</h2>
+						<p>Finally, I have taken my trained model and tested it using the test_sentences as shown in the below code snippet. I have achieved an accuracy of 25% on the test dataset.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a2/17.png">
+<br>
+						
 						<h2>References</h2>
 						<p>
 							<ol>
-							<li>[1] Rohith G : Everything you need to know about VGG16 [<a href="https://medium.com/@mygreatlearning/everything-you-need-to-know-about-vgg16-7315defb5918">https://medium.com/@mygreatlearning/everything-you-need-to-know-about-vgg16-7315defb5918</a>]</li>
-							<li>[2] GeeksforGeeks :One hot encoding to treat Categorical Data [<a href="https://www.geeksforgeeks.org/ml-one-hot-encoding-of-datasets-in-python">https://www.geeksforgeeks.org/ml-one-hot-encoding-of-datasets-in-python/</a>]</li>
+							<li>[1]Vaibhav Jayswal : Laplace smoothing in Naïve Bayes algorithm [<a href="https://towardsdatascience.com/laplace-smoothing-in-na%C3%AFve-bayes-algorithm-9c237a8bdece">https://towardsdatascience.com/laplace-smoothing-in-na%C3%AFve-bayes-algorithm-9c237a8bdece</a>]</li>
+							<li>[2]GeeksforGeeks :Using CountVectorizer to Extracting Features from Tex [<a href="https://www.geeksforgeeks.org/using-countvectorizer-to-extracting-features-from-text/">https://www.geeksforgeeks.org/using-countvectorizer-to-extracting-features-from-text/</a>]</li>
 
-							<li>[3] Maryna Antonevych : Multicalss Classification [<a href="https://www.kaggle.com/code/maricinnamon/multiclass-classification-caltech101-tensorflow">https://www.kaggle.com/code/maricinnamon/multiclass-classification-caltech101-tensorflow</a>]</li>
+							<li>[3]JaganDeep Singh : Naive bayes classification[<a href="https://jagan-singhh.medium.com/naive-bayes-classifier-99e3e618f8db">https://jagan-singhh.medium.com/naive-bayes-classifier-99e3e618f8db</a>]</li>
 
-							<li>[4] Badisson Josef : [<a href="https://stackoverflow.com/questions/67764895/how-to-remove-the-last-2-layers-within-a-vgg16-pre-trained-model">https://stackoverflow.com/questions/67764895/how-to-remove-the-last-2-layers-within-a-vgg16-pre-trained-model</a>]</li>
+							<li>[4]Ford Sentence Classification Dataset : [<a href="https://www.kaggle.com/datasets/gaveshjain/ford-sentence-classifiaction-dataset?resource=download&select=test_data.csv">https://www.kaggle.com/datasets/gaveshjain/ford-sentence-classifiaction-dataset?resource=download&select=test_data.csv</a>]</li>
 						</ol></p>
 
                         </header>
