@@ -153,20 +153,21 @@
 <p>Now, using the snippet below, we fit the constructed model. Additionally, I utilized the "d2" data structure, a data structure, to store the training time for this model using the time library:</p>
 <img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/24.png">
 <p>As we can see from the last 5 epochs of this model, we can say that this “CNN1” model gives us an accuracy of 16.62%.</p>
-<p>Using the below code snippet we can visualize the training and validation accuracy and loss for "CNN1".</p>
 <img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/25.png">
+<p>Using the below code snippet we can visualize the training and validation accuracy and loss for "CNN1".</p>
 <img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/26.png">
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/27.png">
 <br>
 <h2>Model "CNN2"</h2>
 <p>For the second CNN model, I'm using four convolution blocks to build a model. Additionally, for the classification task of class prediction, we'll use a softmax activation function.</p>
-<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/27.png">
-<p>The model "CNN2" Architecture is as follows:</p>
 <img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/28.png">
+<p>The model "CNN2" Architecture is as follows:</p>
 <img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/29.png">
-<p>As we can see from the last 5 epochs of this model, we can say that this “CNN2” model gives us an accuracy of 17.65%.</p>
 <img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/30.png">
-<p>The training and validation accuracy and loss graphs for "CNN2".</p>
+<p>As we can see from the last 5 epochs of this model, we can say that this “CNN2” model gives us an accuracy of 17.65%.</p>
 <img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/31.png">
+<p>The training and validation accuracy and loss graphs for "CNN2".</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/32.png">
 <br>
 <br>
 <h2>Challenge</h2>
@@ -178,22 +179,22 @@
 <br>
 <h2>SVM</h2>
 <p>A popular supervised machine learning approach called "Support Vector machines" is applied to classification and regression issues. For classification issues, a support vector machine's task is to take labelled data like the following:</p>
-<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/32.png">
-<p>[3]https://linguisticmaz.medium.com/support-vector-machines-explained-8804cac06883</p>
-<p>We can then use this hyperplane to make predictions for which class a new data point belong to:</p>
 <img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/33.png">
 <p>[3]https://linguisticmaz.medium.com/support-vector-machines-explained-8804cac06883</p>
-<p>We'll concentrate on linearly separable support vector machines in this case. The following example shows the distinction between data that can be separated linearly and those that cannot:</p>
+<p>We can then use this hyperplane to make predictions for which class a new data point belong to:</p>
 <img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/34.png">
 <p>[3]https://linguisticmaz.medium.com/support-vector-machines-explained-8804cac06883</p>
-<p>Let us consider the below scenario with given hyperplane and lines corresponding to their formulas.</p>
+<p>We'll concentrate on linearly separable support vector machines in this case. The following example shows the distinction between data that can be separated linearly and those that cannot:</p>
 <img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/35.png">
+<p>[3]https://linguisticmaz.medium.com/support-vector-machines-explained-8804cac06883</p>
+<p>Let us consider the below scenario with given hyperplane and lines corresponding to their formulas.</p>
 <img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/36.png">
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/37.png">
 <p>[3]https://linguisticmaz.medium.com/support-vector-machines-explained-8804cac06883</p>
 <p>Using the below code we create our Linear SVC model and fit it.</p>
-<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/37.png">
-<p>The Accuracy of this Linear SVM model is as follows:</p>
 <img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/38.png">
+<p>The Accuracy of this Linear SVM model is as follows:</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/39.png">
 <p>We can see that the Accuracy has been improved to 44% using the Linear SVM Classification model.</p>
 <br>
 <br>
@@ -201,10 +202,9 @@
 <p>To scale up models in a quick and easy way, EfficientNet use a method called compound coefficient. Compound scaling uniformly scales each dimension with a predetermined fixed set of scaling coefficients as opposed to randomly increasing width, depth, or resolution. The developers of efficient created seven models in different dimensions using the scaling approach and AutoML, outperforming most convolutional neural networks' state-of-the-art accuracy while operating far more effectively.</p>
 <h2>Compound Model Scaling</h2>
 <p>The authors thoroughly investigated the effects of each scaling strategy on the functionality and effectiveness of the model before formulating the compound scaling method. They reasoned that while scaling one dimension can assist enhance model performance, scaling all three dimensions—width, depth, and image resolution—while taking into account the varied resources available, can best improve the model's performance as a whole.</p>
-<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/39.png">
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/40.png">
 <p>[2][https://towardsdatascience.com/complete-architectural-details-of-all-efficientnet-models-5fd5b736142]</p>
 <p>We are going to use EfficientNetB0 and EfficientNetB3 for this problem.</p>
-<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/40.png">
 <h2>EfficientNet-B0</h2>
 <img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/41.png">
 <p>[1][https://medium.com/mlearning-ai/understanding-efficientnet-the-most-powerful-cnn-architecture-eaeb40386fad]</p>
