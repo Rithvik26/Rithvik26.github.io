@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Golthi Rithvik's Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<style>
+		img {
+  transform: scale(0.7);
+}
+	</style>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Intro -->
+					<div id="intro">
+						<h1>Term Project Blog</h1>
+						
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
+
+				<!-- Header -->
+					<header id="header">
+						<a href="term_project_blog.html" class="logo">Term Project Blog</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html" >Golthi Rithvik</a></li>
+					
+						</ul>
+						<ul class="icons">
+
+							<li><a target="_blank" href="https://github.com/Rithvik26/Main_project_Wild_Animals/blob/main/Main_Project.ipynb"><span class="label">Jupyter Notebook</span></a></li>
+							<li><a target="_blank" href="https://drive.google.com/file/d/1xdRk1F8_AtMzDQecroxtKMzPI85l8FM7/view?usp=sharing"><span class="label">Resume</span></a></li>
+							
+							<li><a target="_blank" href="https://www.linkedin.com/in/rithvik-golthi-92048b167/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							
+							<li><a target="_blank" href="https://github.com/Rithvik26" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+							
+                                <header> <h2>Getting Started</h2>
+                                    <p>In this blog we are going to learn how to implement different classifiers like VGG16, Linear SVM, EfficientNetB0 and EfficientNetB3 on the given wild animals images which include lions,cheetahs,fox,lion,tiger and wolf. We are going to test the performances and training times of these models.</p>
+						<br>
+                        
+                        <h2>Dataset</h2>
+                        <p>I have used python3 to implement the model.I first downloaded the Wild Animals  dataset from kaggle and placed this dataset and placed the zip file in the google drive.Then I have unzipped the data as using the below code snippet:</p>
+							<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/1.png">
+                        <br>
+                        
+                        <h2>Libraries</h2>
+						<p>Firstly, before we start working on the dataset, we are going to import required libraries as shown in the below code snippet:</p>
+                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/2.png">
+                        <img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/3.png">
+                        <br>
+
+						<h2>Data Preprocessing</h2>
+						<h3>Initializing the Vairiables</h3>
+						<p>The below variables will store the input data, target labels and also the paths of the image files. And the classes data variable is a list that contains the available six classes names.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/4.png">
+
+						<h2>Creating DataFrames</h2>
+						<p>We will pass the directory path in which the dataset is located to the make_dataframes function. This function will return the train, test, validation dataframes along with the classes and class_count of the dataset using the below code snippet.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/5.png">
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/6.png">
+
+                        <br>
+						<h2>Trim Function</h2>
+						<p>We will be using a function called trim which will trim the datafram length from 3618 to 3000 with 6 classes.</p>
+						<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/7.png">
+<br>
+<h2>Creating Generators</h2>
+<p>We will be creating the generators for the train, test and validation dataframes using the below code snippet. As we are going to use these generators in the future for training models.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/8.png">
+<br>
+<h2>Data Visualization</h2>
+<p>Using the below code snippet we can visualize the images present in the dataset along with their labels associated with it.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/9.png">
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/10.png">
+<br>
+<h2>Creating Images and Labels</h2>
+<p>Now, we are going to create different lists for images and labels using the dataframes that we have created previously using the below function.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/11.png">
+<br>
+<h2>HOG(Histograms of Oriented Gradients)</h2>
+<p>HOG, or Histogram of Oriented Gradients, is a feature descriptor similar to the Scale Invariant and Feature Transform (SIFT) Canny Edge Detector. For the goal of object detection, it is employed in computer vision and image processing. The method counts instances of gradient orientation within a specific area of an image. This technique is extremely similar to Scale Invariant aFeature Transformation and Edge Orientation Histograms (SIFT). And using the below code snippet we can extract HOG.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/12.png">
+<p>The training and testing images and labels are extracted using the below code snippet. And also we can see there are 3000 training samples and 776 test samples, where each image size is set to (150,150).</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/13.png">
+
+<br>
+<h2>Label Binarizer</h2>
+<p>A SciKit Learn class called Label Binarizer takes categorical data as input and outputs a Numpy array. It encodes the data into dummy variables that indicate whether or not a specific label is present, unlike Label Encoder.Using the below code snippet we will be encoding the labels of train and test images.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/14.png">
+<br>
+<br>
+<h2>My Contribution</h2>
+<p>Initially I have choosen the VGG16 model for classication of this dataset.</p>
+<br>
+<h2>VGG16</h2>
+<p>Convolutional neural networks, a subset of artificial neural networks, are also referred to as ConvNets. A convolutional neural network is made up of an input layer, an output layer, and numerous hidden layers. The CNN (Convolutional Neural Network) variation known as VGG16 is one of the best computer vision models available today. This model showed a significant improvement over the state-of-the-art setups by analyzing the networks and enhancing the depth using an architecture with exceptionally small (3 3) convolution filters. With the depth extended to 16–19 weight layers, around 138 trainable parameters </p>
+<h2>What is VGG16 used for?</h2>
+<p>VGG16 is an object identification and classification algorithm that, when used to classify 1000 images into 1000 separate categories, has an accuracy rate of 92.7%. It is a popular method for categorizing photographs and is easy to use with transfer learning.</p>
+<h2>VGG16 Architecture</h2>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/15.png">
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/16.png">
+<p>[4][https://medium.com/@mygreatlearning/everything-you-need-to-know-about-vgg16-7315defb5918]</p>
+<p>The 16 in VGG16 stands for 16 weighted layers. Thirteen convolutional layers, five Max Pooling layers, three Dense layers, and a total of 21 layers make up VGG16, but only sixteen of them are weight layers, also known as learnable parameters layers.
+
+	VGG16 requires an input tensor with three RGB channels and a size of 224, 244.
+	
+	The convolution and max pool layers are positioned continuously throughout the architecture.
+	
+	The Conv-1 Layer consists of 64 filters, the Conv-2 Layer of 128 filters, the Conv-3 Layer of 256 filters, and the Conv-4 and Conv-5 Layers of 512 filters.
+	</p>
+<br>
+<h2>Loading the VGG16 model</h2>
+<p>We are loading the VGG16 using the below code snippet.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/17.png">
+<br>
+<h2>Model "CNN1"</h2>
+<p>We are initializing the hyperparameters like learning rate, epochs, batch_size and losses in the below code snippet:</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/18.png">
+<p>For the first CNN model, I'm using two convolution blocks to build a model. Additionally, for the classification task of class prediction, we'll use a softmax activation function.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/19.png">
+<p>Finally, we need to update our model "m1" to include this output.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/20.png">
+<p>And, we would like to save only the best model from all the epochs of this model.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/21.png">
+<p>The model is created, the optimizer is built up from scratch, and the model summary is shown. We'll apply the Adam optimizer in this case.</p>
+<h3>ADAM Optimizer</h3>
+<p>Instead of stochastic gradient descent, an alternative optimization approach called Adam can be used to train deep learning models. By fusing the most advantageous aspects of the AdaGrad and RMSProp algorithms, Adam develops an optimization technique that can handle sparse gradients in noisy environments. Instead of stochastic gradient descent, an alternative optimization approach called Adam can be used to train deep learning models. By fusing the most advantageous aspects of the AdaGrad and RMSProp algorithms, Adam develops an optimization technique that can handle sparse gradients in noisy environments.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/22.png">
+<p>The "CNN1" models architecture is as follows:</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/23.png">
+<p>Now, using the snippet below, we fit the constructed model. Additionally, I utilized the "d2" data structure, a data structure, to store the training time for this model using the time library:</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/24.png">
+<p>As we can see from the last 5 epochs of this model, we can say that this “CNN1” model gives us an accuracy of 16.62%.</p>
+<p>Using the below code snippet we can visualize the training and validation accuracy and loss for "CNN1".</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/25.png">
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/26.png">
+<br>
+<h2>Model "CNN2"</h2>
+<p>For the second CNN model, I'm using four convolution blocks to build a model. Additionally, for the classification task of class prediction, we'll use a softmax activation function.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/27.png">
+<p>The model "CNN2" Architecture is as follows:</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/28.png">
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/29.png">
+<p>As we can see from the last 5 epochs of this model, we can say that this “CNN2” model gives us an accuracy of 17.65%.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/30.png">
+<p>The training and validation accuracy and loss graphs for "CNN2".</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/31.png">
+<br>
+<br>
+<h2>Challenge</h2>
+<p>The main challenge now is that we need to increase the classification models performance significantly as the previous two CNN models performance is pretty much low.</p>
+<br>
+<h2>Solution</h2>
+<p>To overcome this challenge I have then used models like Linear SVM, EfficientNetB0 and EfficientNetB3 models to increase the performance of this problem.</p>
+<br>
+<br>
+<h2>SVM</h2>
+<p>A popular supervised machine learning approach called "Support Vector machines" is applied to classification and regression issues. For classification issues, a support vector machine's task is to take labelled data like the following:</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/32.png">
+<p>[3]https://linguisticmaz.medium.com/support-vector-machines-explained-8804cac06883</p>
+<p>We can then use this hyperplane to make predictions for which class a new data point belong to:</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/33.png">
+<p>[3]https://linguisticmaz.medium.com/support-vector-machines-explained-8804cac06883</p>
+<p>We'll concentrate on linearly separable support vector machines in this case. The following example shows the distinction between data that can be separated linearly and those that cannot:</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/34.png">
+<p>[3]https://linguisticmaz.medium.com/support-vector-machines-explained-8804cac06883</p>
+<p>Let us consider the below scenario with given hyperplane and lines corresponding to their formulas.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/35.png">
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/36.png">
+<p>[3]https://linguisticmaz.medium.com/support-vector-machines-explained-8804cac06883</p>
+<p>Using the below code we create our Linear SVC model and fit it.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/37.png">
+<p>The Accuracy of this Linear SVM model is as follows:</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/38.png">
+<p>We can see that the Accuracy has been improved to 44% using the Linear SVM Classification model.</p>
+<br>
+<br>
+<h2>EfficientNet</h2>
+<p>To scale up models in a quick and easy way, EfficientNet use a method called compound coefficient. Compound scaling uniformly scales each dimension with a predetermined fixed set of scaling coefficients as opposed to randomly increasing width, depth, or resolution. The developers of efficient created seven models in different dimensions using the scaling approach and AutoML, outperforming most convolutional neural networks' state-of-the-art accuracy while operating far more effectively.</p>
+<h2>Compound Model Scaling</h2>
+<p>The authors thoroughly investigated the effects of each scaling strategy on the functionality and effectiveness of the model before formulating the compound scaling method. They reasoned that while scaling one dimension can assist enhance model performance, scaling all three dimensions—width, depth, and image resolution—while taking into account the varied resources available, can best improve the model's performance as a whole.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/39.png">
+<p>[2][https://towardsdatascience.com/complete-architectural-details-of-all-efficientnet-models-5fd5b736142]</p>
+<p>We are going to use EfficientNetB0 and EfficientNetB3 for this problem.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/40.png">
+<h2>EfficientNet-B0</h2>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/41.png">
+<p>[1][https://medium.com/mlearning-ai/understanding-efficientnet-the-most-powerful-cnn-architecture-eaeb40386fad]</p>
+<h2>EfficientNet-B3</h2>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/42.png">
+<p>[1][https://medium.com/mlearning-ai/understanding-efficientnet-the-most-powerful-cnn-architecture-eaeb40386fad]</p>
+<h2>Model "Efficient_Net_B3"</h2>
+<p>Using the below code Snippet we are going to create the EfficientNetB3 model.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/43.png">
+<p>Next, we need to compile and fit this model now. While compiling this model we are going to set the hyperparameters as following shown in the below code snippet.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/44.png">
+<p>As we can see from the last 5 epochs of this model, we can say that this “Efficient_Net_B3” model gives us an accuracy of 83.33%.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/45.png">
+<p>The training and validation accuracy and loss graphs for "Efficient_Net_B3".</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/46.png">
+
+<h2>Model "Efficient_Net_B0"</h2>
+<p>Using the below code Snippet we are going to create the EfficientNetB0 model.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/47.png">
+<p>Next, we need to compile and fit this model now. While compiling this model we are going to set the hyperparameters as following shown in the below code snippet.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/48.png">
+<p>As we can see from the last 5 epochs of this model, we can say that this “Efficient_Net_B0” model gives us an accuracy of 83.33%.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/49.png">
+<p>The training and validation accuracy and loss graphs for "Efficient_Net_B3".</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/50.png">
+<br>
+<br>
+<h2>Graphical Representation using Bar Graphs</h2>
+<h3>Training Time Graphs</h3>
+<p>Using the below code I have projected the Training times of the implemented models using the bar graph using matplotlib library. And I have stored the Training times of the models using a dictionary data structure and labelled it as “d2”.</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/51.png">
+<p>The Bar graph for Training times is as follows</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/52.png">
+<br>
+<h3>Accuracies Graphs:</h3>
+<p>Using the below code I have projected the accuracies of the implemented models using the bar graph using matplotlib library.I have stored the accuracy of each model using a dictionary data structure and labelled it as "a2".</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/53.png">
+<p>The Bar graph for Accuracy is as follows</p>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/54.png">
+<br>
+<br>
+<h2>Observations and Results</h2>
+<img style='height: 100%; width: 100%; object-fit: contain' src="images/a3/55.png">
+<p>We have succesfully improved the classification accuracy from 16% to 83% of the wild animals images using different classification models.
+	From the accuracies and training time graphs,we can say that the model "Efficient_Net_B0" has the highest accuracy with lowest training time. Thus, we can say that using "Efficient_Net_B0" will be used as the solution for our challenge.</p>
+
+
+
+						<h2>References</h2>
+						<p>
+							<ol>
+							<li>[1]Arjun Sarkar : Understanding EfficientNet — The most powerful CNN architecture [<a href="https://medium.com/mlearning-ai/understanding-efficientnet-the-most-powerful-cnn-architecture-eaeb40386fad">https://medium.com/mlearning-ai/understanding-efficientnet-the-most-powerful-cnn-architecture-eaeb40386fad</a>]</li>
+							<li>[2]Vardan Agarwal :Complete Architectural Details of all EfficientNet Models [<a href="https://towardsdatascience.com/complete-architectural-details-of-all-efficientnet-models-5fd5b736142">https://towardsdatascience.com/complete-architectural-details-of-all-efficientnet-models-5fd5b736142</a>]</li>
+
+							<li>[3]Mazen Ahmed : Linear Support Vector Machines Explained[<a href="https://linguisticmaz.medium.com/support-vector-machines-explained-8804cac06883">https://linguisticmaz.medium.com/support-vector-machines-explained-8804cac06883</a>]</li>
+
+							<li>[4] Rohith G : Everything you need to know about VGG16 [<a href="https://medium.com/@mygreatlearning/everything-you-need-to-know-about-vgg16-7315defb5918">https://medium.com/@mygreatlearning/everything-you-need-to-know-about-vgg16-7315defb5918</a>]</li>
+						</ol></p>
+
+                        </header>
+					</div>
+		
+			
+				<!-- Footer -->
+					<footer id="footer">
+						
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>
+								Dallas, TX 75082</p>
+							</section>
+							
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">rxg9045@mavs.uta.edu</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a target="_blank" href="https://www.linkedin.com/in/rithvik-golthi-92048b167/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							
+							<li><a target="_blank" href="https://github.com/Rithvik26" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Golthi</li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
