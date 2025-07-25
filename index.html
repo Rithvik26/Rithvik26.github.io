@@ -456,6 +456,155 @@
             transform: translateX(5px);
         }
 
+        /* Summary Section Styles */
+        .summary-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .summary-card {
+            padding: 3rem;
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--accent-gradient);
+        }
+
+        .summary-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .summary-text strong {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .summary-highlights {
+            margin: 3rem 0;
+        }
+
+        .summary-highlights h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .highlight-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .highlight-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .highlight-icon {
+            background: var(--accent-gradient);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .highlight-content h4 {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .summary-education {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+        }
+
+        .summary-education h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .education-item h4 {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-school {
+            color: var(--text-accent);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-details {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-focus {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
         /* Contact Section */
         .contact-grid {
             display: grid;
@@ -589,6 +738,7 @@
             <div class="logo">Rithvik Golthi</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#summary">Summary</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -617,6 +767,90 @@
                     <a href="#contact" class="btn btn-secondary">
                         <i class="fas fa-envelope"></i> Get In Touch
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summary Section -->
+        <section id="summary" class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="summary-container">
+                <div class="summary-card glass fade-in">
+                    <div class="summary-content">
+                        <p class="summary-text">
+                            <strong>Experienced Software Engineer</strong> with 2+ years of expertise in building scalable distributed systems, 
+                            AI-powered applications, and cloud-native solutions. Currently driving innovation at Donato Technologies, 
+                            where I lead cross-functional teams in developing enterprise-grade microservices and implementing DevOps best practices.
+                        </p>
+                        
+                        <p class="summary-text">
+                            My passion lies in creating <strong>intelligent healthcare solutions</strong> and <strong>cutting-edge AI systems</strong>. 
+                            At DermaAI, I've architected HIPAA-compliant platforms that leverage LLMs and RAG architectures to deliver 
+                            sub-second response times for critical medical applications.
+                        </p>
+
+                        <div class="summary-highlights">
+                            <h3>Key Achievements</h3>
+                            <div class="highlights-grid">
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-rocket"></i>
+                                    </div>
+                                    <div class="highlight-content">
+                                        <h4>Performance Optimization</h4>
+                                        <p>Reduced deployment time by 30% and load times by 30% through optimized CI/CD pipelines and frontend architecture</p>
+                                    </div>
+                                </div>
+
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="highlight-content">
+                                        <h4>System Reliability</h4>
+                                        <p>Achieved 99.9% data availability and reduced production outages by 45% through fault-tolerant architecture</p>
+                                    </div>
+                                </div>
+
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-brain"></i>
+                                    </div>
+                                    <div class="highlight-content">
+                                        <h4>AI Innovation</h4>
+                                        <p>Developed AI-driven systems using GPT-4o, Claude, and Grok with RAG architecture for contextual medical queries</p>
+                                    </div>
+                                </div>
+
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="highlight-content">
+                                        <h4>Team Leadership</h4>
+                                        <p>Led cross-functional collaboration and mentored junior developers in modern development practices</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="summary-education">
+                            <h3>Education</h3>
+                            <div class="education-grid">
+                                <div class="education-item">
+                                    <h4>Master of Science in Computer Science</h4>
+                                    <p class="education-school">University of Texas At Arlington</p>
+                                    <p class="education-details">CGPA: 3.75/4.0 • Jan 2022 – Aug 2023</p>
+                                    <p class="education-focus">Specialization: Software Engineering & Big Data</p>
+                                </div>
+                                <div class="education-item">
+                                    <h4>Bachelor of Technology in Computer Science</h4>
+                                    <p class="education-school">Gokaraju Rangaraju Institute of Engineering and Technology</p>
+                                    <p class="education-details">CGPA: 9.43/10 • Aug 2017 – Aug 2021</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
