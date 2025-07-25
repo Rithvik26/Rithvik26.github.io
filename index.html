@@ -1,269 +1,1116 @@
-<!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Golthi Rithvik's Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rithvik Golthi - Software Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --dark-gradient: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.8);
+            --text-accent: #00f2fe;
+            --shadow-light: 0 8px 32px rgba(31, 38, 135, 0.37);
+            --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Golthi Rithvik Portfolio</h1>
-						<p>A showcase of my experience at Donato Tech., personal projects and my abilities.</p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--dark-gradient);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo">My Portfolio</a>
-					</header>
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(240, 147, 251, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(79, 172, 254, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            animation: backgroundFloat 20s ease-in-out infinite;
+        }
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html" >Golthi Rithvik</a></li>
-					
-						</ul>
-						<ul class="icons">
+        @keyframes backgroundFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
 
+        /* Glass morphism utility */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-light);
+        }
 
-							<li><a target="_blank" href="https://drive.google.com/file/d/1P79J0USLuX5Z_ZVAATSmGIFpu7oph5Vj/view?usp=sharing"><span class="label">Resume</span></a></li>
-							
-							<li><a target="_blank" href="https://www.linkedin.com/in/rithvik-golthi-92048b167/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-							
-							<li><a target="_blank" href="https://github.com/Rithvik26" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</nav>
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
 
-				<!-- Main -->
-					<div id="main">
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-						<!-- Featured Post -->
-						
-							<article class="post featured">
-								<header class="major">
-									
-										
-									
-									<span class="date">Biography</span>
-									<ul class="actions special">
-										<img style="
-											border-radius: 50%; max-width:30%;
-			height:auto;" src="images/pic.JPG" alt="Avatar">
-										
-									</ul>
-									<h2><a href="#">Hi! I'm Rithvik Golthi</a></h2>
-									<p>I am currently a Software Engineer at Donato Technologies. I completed my masters in computer science from The University of Texas At Arlington and
-										my B.Tech in computer science from Gokaraju Rangaraju Institute of Engineering and Technology.</p>
-								</header>
-								
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-								
-							</article>
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-							<header class="major"><span class="date"> Technical Skills </span>
-								<p>Languages : Java, Python, C/C++, SQL, Swi\, HTML, CSS, JavaScript, Angular<br>
-									Libraries and Frameworks: pandas, NumPy, Matplotlib, Django, Flu]er, Material-UI, Spring, SpringBoot, Swift UI.<br>
-									Developer Tools: Git, SQL Developer, VS Code, Visual Studio, IntelliJ, Firebase, Eclipse, Xcode. <br>
-									AWS (Amazon Web Services): Experience with cloud services, including EC2, Docker, S3, Lambda, DynamoDB. <br>
-									</p></header>
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
 
-								
-		<header class="major"><span> My Experience as a passionate developer at Donato Tech. </span>
-								<p>• Engineered distributed microservices architecture using Spring Boot and Firebase, implemenVng RESTful APIs and robust
-								authenVcaVon mechanisms, resulVng in 40% improvement in API response Vmes and enhanced system scalability.<br>
-								• Architected a HIPAA-compliant healthcare plaZorm using Swi\ and React, implemenVng service pa]erns and Firebase
-								AuthenVcaVon with AWS S3 integraVon, achieving 99% system reliability and secure medical data management.<br>
-								• Developed AI-powered medical analysis system using Claude API and computer vision technology, implemenVng
-								parallel processing for paVent diagnosVcs and treatment tracking, leading to 40% faster data processing and improved
-								diagnosVc accuracy.<br>
-								• Designed scalable database soluVons integraVng MongoDB and Firestore with Repository pa]ern implementaVon,
-								enabling real-Vme data synchronizaVon and eﬃcient handling of complex medical records across distributed systems.<br>
-								• Led cross-funcVonal collaboraVon with Development teams and stakeholders for an internal employee management
-								system, implemenVng role-based access controls and automated CI/CD workflows with Python scripts, ensuring secure
-								and eﬃcient system deployment.<br>
-								• Built responsive frontend applicaVons using React.js and TypeScript, implemenVng code splifng and custom hooks for
-								state management, while integraVng Tailwind CSS for improved UI/UX, resulVng in 30% faster load Vmes.</p></header>
+        .nav-links a:hover {
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
 
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gradient);
+            transition: width 0.3s ease;
+        }
 
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+        }
 
-							<header class="major"><span class="date"> Relevant Coursework </span>
-								<p>Algorithms Analysis and Data Structures, Worked on different API’s like Google Translate API, Youtube API for ranking
-									videos for recommendation, Docker Orchestration, Kubernetes, worked on Virtual machines,Database Design, Database
-									Programming with SQL, Web programming Languages, WEB Frameworks and Architectures, Operating System Concepts, OOP
-									in C++ and JAVA,DBMS.</p></header>
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            animation: fadeInUp 1s ease;
+        }
 
+        .hero-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            background: var(--primary-gradient);
+            padding: 5px;
+            animation: float 6s ease-in-out infinite;
+        }
 
+        .hero-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
 
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
 
-							<header class="major"><span class="date"> MOOC </span>
-								<p>Used NPTEL, a massive open online course(MOOC) platform, to take courses offered by accredited universities and training
-									programs, including IIT Kharagpur, to acquire skills in :DBMS,C++,C and JAVA.</p></header>
-							<section class="posts">
-								
-								<article>
-									
-									<header>
-										<span class="date">2018</span>
-										<h2>Database Management Systems</h2>
-									</header>
-									
-									
-								</article>
-								<article>
-									<header>
-										<span class="date">2018</span>
-										<h2>Programming in C++ </h2>
-									</header>
-									
-									
-								</article>
-								<article>
-									<header>
-										<span class="date">2018</span>
-										<h2>Problem Solving through Programming in C</h2>
-									</header>
-									
-								</article>
-								<article>
-									<header>
-										<span class="date">2019</span>
-										<h2>Database Design</h2>
-									</header>
-									
-									
-									
-								</article>
-								
-							</section>
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-						<!-- Posts -->
-						<header class="major"><span class="date"> My Projects </span></header>
-						
-							<section class="posts">
-								
-								<article>
-									
-									<header>
-										<span class="date">2019</span>
-										<h2><a target="_blank" href="https://github.com/Rithvik26">Beatzzz-A Personalised Music App</a></h2>
-									</header>
-									
-									<p>Developed a Django based web application including Django Rest Framework(DRF) and RestFul API's for getting and
-										posting data, and maintained the SQLite database for the website.</p>
-									
-								</article>
-								<article>
-									<header>
-										<span class="date">2020</span>
-										<h2><a target="_blank" href="https://github.com/Rithvik26">Rotten Oranges: Movie Review Website </a></h2>
-									</header>
-									
-									<p>Included features for a user to Explore, Rate and Review movies along with features like authorization, user profile etc.
-										Used mongoose for DB connection.Website also includes features like live database search, adding movies to favorites
-										and admin functionalities.</p>
-									
-								</article>
-								<article>
-									<header>
-										<span class="date">2019</span>
-										<h2><a target="_blank" href="https://github.com/Rithvik26">SQL Programming project</a></h2>
-									</header>
-									
-									<p>Built a Rest API using Node JS,Express and Oracle 18c XE for multiple databases.</p>
-									
-								</article>
-								<article>
-									<header>
-										<span class="date">2021</span>
-										<h2><a target="_blank" href="https://github.com/Rithvik26">Job Scraper</a></h2>
-									</header>
-									
-									<p>Used BeautifulSoup to extract the HTML and parse it,with the help of ‘find’ and ‘find_all’ functions to identify and
-										iterate over each job listing of the websites like https//in.indeed.com. Using its standardized URL, stored and saved the
-										resulting job lists.</p>
-									
-								</article>
-								<article>
-									<header>
-										<span class="date">2020</span>
-										<h2><a target="_blank" href="https://github.com/Rithvik26">3D Object Detection for Autonomous vehicles</a></h2>
-									</header>
-									
-									<p>Used 3D semantic segmentation approach to detect the object and loaded pre-trained weights to 3D-Unet model for
-										predictions.</p>
-									
-								</article>
-								<article>
-									<header>
-										<span class="date">2021</span>
-										<h2><a target="_blank" href="https://github.com/Rithvik26">Crop weed identification</a></h2>
-									</header>
-									
-									<p>Used Training data which involves images of 11 types of plant seedlings and a weed crop that damages the crop,total of
-										4750 images.Used transfer learning Machine Learning technique,Extracted bottleneck features from a pretrained
-										keras model - “Xception model” and trained models for predictions.</p>
-									
-								</article>
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
 
+        .hero .description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
 
-							</section>
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-							
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-					</div>
-		
-			
-				<!-- Footer -->
-					<footer id="footer">
-						
-						<section class="split contact">
-							
-							
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">golthirithvik78@gmail.com</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a target="_blank" href="https://www.linkedin.com/in/rithvik-golthi-92048b167/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-							
-							<li><a target="_blank" href="https://github.com/Rithvik26" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+        }
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Golthi</li></ul>
-					</div>
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(79, 172, 254, 0.6);
+        }
 
-			</div>
+        .btn-secondary {
+            background: var(--glass-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
 
-	</body>
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Experience Cards */
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .experience-card {
+            padding: 2rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-gradient);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .experience-company {
+            font-size: 1.1rem;
+            color: var(--text-accent);
+            font-weight: 600;
+        }
+
+        .experience-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 0.3rem 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+
+        .experience-points {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .experience-points li {
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-points li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--text-accent);
+            font-size: 0.8rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .skill-category {
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            padding: 0.3rem 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            padding: 2rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: fit-content;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--secondary-gradient);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .project-year {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 0.3rem 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: var(--text-accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--text-primary);
+            transform: translateX(5px);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .contact-item {
+            padding: 2rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .contact-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--text-accent);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-avatar {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--accent-gradient);
+            z-index: 9999;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+    
+    <header class="glass" id="header">
+        <nav>
+            <div class="logo">Rithvik Golthi</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-avatar">
+                    <img src="images/pic.JPG" alt="Rithvik Golthi" onerror="this.style.display='none'">
+                </div>
+                <h1>Rithvik Golthi</h1>
+                <p class="subtitle">Software Engineer & Full-Stack Developer</p>
+                <p class="description">
+                    Passionate software engineer with expertise in distributed systems, AI integration, and cloud technologies. 
+                    Currently building scalable solutions at Donato Technologies and developing innovative healthcare platforms.
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://drive.google.com/file/d/1P79J0USLuX5Z_ZVAATSmGIFpu7oph5Vj/view?usp=sharing" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card glass fade-in">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Software Engineer</h3>
+                            <p class="experience-company">Donato Technologies</p>
+                        </div>
+                        <span class="experience-date">Oct 2023 – Present</span>
+                    </div>
+                    <ul class="experience-points">
+                        <li>Led cross-functional collaboration to develop an employee management system using Spring Boot microservices and React.js, enhancing role-based access control and orchestrating secure workflows with Apache Kafka for real-time inter-service communication.</li>
+                        <li>Engineered scalable CI/CD pipelines using GitHub Actions and Docker, automating build, test, and deployment processes, reducing release time by 30%, and improving deployment reliability across environments.</li>
+                        <li>Designed infrastructure-as-code using AWS CloudFormation, orchestrating containerized services with Kubernetes, enabling zero-downtime deployments and reducing production outages by 45%.</li>
+                        <li>Built modular frontend components using React.js, TypeScript, and Tailwind CSS, incorporating code splitting, custom hooks, and lazy loading to reduce load times by 30%.</li>
+                        <li>Automated unit and integration tests using JUnit, Postman, and Python, achieving 90% test coverage across critical APIs.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card glass fade-in">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Software Engineer</h3>
+                            <p class="experience-company">DermaAI</p>
+                        </div>
+                        <span class="experience-date">Sep 2024 – Present</span>
+                    </div>
+                    <ul class="experience-points">
+                        <li>Independently designed and deployed a HIPAA-compliant distributed healthcare platform using Swift/SwiftUI, implementing secure patient management, medical documentation, and real-time status tracking.</li>
+                        <li>Developed an AI-driven dermatology assistant using LLMs (GPT-4o, Grok, Claude) and RAG architecture, integrating Gemini embeddings and Qdrant vector DB for contextual patient queries with sub-second response latency.</li>
+                        <li>Architected a fault-tolerant computing system using Firebase, AWS S3, and Cloud Functions, ensuring 99.9% data availability and implementing auto-scaling with global sync for platform-agnostic access.</li>
+                        <li>Built a secure messaging system with differential privacy, role-based access, and encrypted data flow between patients and doctors, facilitating HIPAA-compliant real-time communication across devices.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category glass fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Swift</span>
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">Kotlin</span>
+                    </div>
+                </div>
+
+                <div class="skill-category glass fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Frameworks & Libraries</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Angular</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">Kafka</span>
+                        <span class="skill-tag">SwiftUI</span>
+                    </div>
+                </div>
+
+                <div class="skill-category glass fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Azure DevOps</span>
+                        <span class="skill-tag">Firebase</span>
+                    </div>
+                </div>
+
+                <div class="skill-category glass fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Databases & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">SQLite</span>
+                        <span class="skill-tag">Qdrant</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">IntelliJ</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card glass fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">RAG Systems (Simple & Graph-based)</h3>
+                        <span class="project-year">2024</span>
+                    </div>
+                    <p class="project-description">
+                        Advanced Retrieval-Augmented Generation systems implementing both simple and graph-based approaches. 
+                        Features semantic search, vector embeddings, and intelligent document retrieval for enhanced AI responses.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://simplerag-92iy.onrender.com/" target="_blank" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/Rithvik26" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card glass fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">Beatzzz - Personalized Music App</h3>
+                        <span class="project-year">2019</span>
+                    </div>
+                    <p class="project-description">
+                        Developed a Django-based web application with Django Rest Framework (DRF) and RESTful APIs for getting and
+                        posting data, maintained SQLite database with responsive Bootstrap frontend.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/Rithvik26" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card glass fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">FFTD - Friends, Family and Travel Diary</h3>
+                        <span class="project-year">2023</span>
+                    </div>
+                    <p class="project-description">
+                        Developed a dynamic family history platform using Java Spring Boot, MongoDB, and Kubernetes for orchestration, 
+                        implementing family tree visualization, media management, and event tracking with Kafka for real-time updates.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/Rithvik26" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card glass fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">Rotten Oranges - Movie Review Website</h3>
+                        <span class="project-year">2020</span>
+                    </div>
+                    <p class="project-description">
+                        Feature-rich movie review platform with user authorization, rating system, live database search, 
+                        favorites functionality, and admin controls. Built with Node.js and MongoDB.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/Rithvik26" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card glass fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">3D Object Detection for Autonomous Vehicles</h3>
+                        <span class="project-year">2020</span>
+                    </div>
+                    <p class="project-description">
+                        Implemented 3D semantic segmentation approach for object detection using pre-trained 3D-UNet model weights 
+                        for predictions in autonomous vehicle applications.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/Rithvik26" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card glass fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">Crop Weed Identification</h3>
+                        <span class="project-year">2021</span>
+                    </div>
+                    <p class="project-description">
+                        Used transfer learning with Xception model to identify 11 types of plant seedlings and crop-damaging weeds 
+                        from 4750 training images, extracting bottleneck features for accurate predictions.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/Rithvik26" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-item glass fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <a href="mailto:golthirithvik8898@gmail.com">golthirithvik8898@gmail.com</a>
+                </div>
+
+                <div class="contact-item glass fade-in">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/rithvikgolthi/" target="_blank">linkedin.com/in/rithvikgolthi</a>
+                </div>
+
+                <div class="contact-item glass fade-in">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/Rithvik26" target="_blank">github.com/Rithvik26</a>
+                </div>
+
+                <div class="contact-item glass fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>LeetCode</h3>
+                    <a href="https://leetcode.com/u/golthi/" target="_blank">leetcode.com/u/golthi</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Rithvik Golthi. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Scroll indicator
+        window.addEventListener('scroll', () => {
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollTop = window.pageYOffset;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            scrollIndicator.style.width = scrollPercent + '%';
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.05)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            hero.style.transform = `translateY(${rate}px)`;
+        });
+
+        // Dynamic typing effect for hero subtitle
+        const subtitle = document.querySelector('.hero .subtitle');
+        const titles = [
+            'Software Engineer & Full-Stack Developer',
+            'Cloud Architecture Specialist',
+            'AI & Machine Learning Enthusiast',
+            'DevOps & Automation Expert'
+        ];
+        
+        let titleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let currentTitle = '';
+
+        function typeEffect() {
+            currentTitle = titles[titleIndex];
+            
+            if (isDeleting) {
+                subtitle.textContent = currentTitle.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                subtitle.textContent = currentTitle.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentTitle.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                titleIndex = (titleIndex + 1) % titles.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeEffect, typeSpeed);
+        }
+
+        // Start typing effect after page load
+        window.addEventListener('load', () => {
+            setTimeout(typeEffect, 1000);
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Add cursor trail effect
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.createElement('div');
+            cursor.className = 'cursor-trail';
+            cursor.style.cssText = `
+                position: fixed;
+                top: ${e.clientY}px;
+                left: ${e.clientX}px;
+                width: 4px;
+                height: 4px;
+                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                animation: fadeOut 0.5s ease forwards;
+            `;
+            
+            document.body.appendChild(cursor);
+            
+            setTimeout(() => {
+                cursor.remove();
+            }, 500);
+        });
+
+        // Add fadeOut animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                to {
+                    opacity: 0;
+                    transform: scale(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add floating particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: fixed;
+                width: 2px;
+                height: 2px;
+                background: rgba(79, 172, 254, 0.3);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: -1;
+                animation: float-up 10s linear infinite;
+            `;
+            
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 10000);
+        }
+
+        // Add floating animation
+        const floatStyle = document.createElement('style');
+        floatStyle.textContent = `
+            @keyframes float-up {
+                from {
+                    transform: translateY(100vh) scale(0);
+                    opacity: 1;
+                }
+                10% {
+                    opacity: 1;
+                    transform: translateY(90vh) scale(1);
+                }
+                90% {
+                    opacity: 1;
+                    transform: translateY(10vh) scale(1);
+                }
+                to {
+                    transform: translateY(-10vh) scale(0);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(floatStyle);
+
+        // Create particles periodically
+        setInterval(createParticle, 1000);
+
+        // Add interactive hover effects for cards
+        document.querySelectorAll('.experience-card, .project-card, .skill-category, .contact-item').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+                this.style.transition = 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add scroll-triggered animations with stagger effect
+        const staggerObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.projects-grid .project-card').forEach(card => {
+            staggerObserver.observe(card);
+        });
+
+        document.querySelectorAll('.skills-grid .skill-category').forEach(skill => {
+            staggerObserver.observe(skill);
+        });
+    </script>
+</body>
 </html>
